@@ -3,19 +3,6 @@
 static Window *s_main_window;
 static GFont s_time_font, s_date_font, s_fsociety_font;
 static TextLayer *s_time_layer, *s_date_layer, *s_hashtag_layer;
-static Layer *line;
-
-// ////////////////////////
-// // update temperature //
-// ////////////////////////
-// static void line_update_proc(Layer *layer, GContext *ctx) {
-//   GRect bounds = layer_get_bounds(layer);
-//   graphics_context_set_fill_color(ctx, GColorBlack);
-//   graphics_context_set_stroke_width(ctx, 1);
-//   graphics_draw_line(ctx, GPoint(0, 40), GPoint(bounds.size.w, 40));
-//   graphics_draw_line(ctx, GPoint(0, bounds.size.h/2), GPoint(bounds.size.w, bounds.size.h/2));
-//   graphics_draw_line(ctx, GPoint(0, 118), GPoint(bounds.size.w, 118));
-// }
 
 //////////////////////
 // load main window //
@@ -40,17 +27,11 @@ static void main_window_load(Window *window) {
   s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MR_ROBOT_42));
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_MR_ROBOT_48));
   
-//   // create temp line
-//   line = layer_create(bounds);
-//   layer_set_update_proc(line, line_update_proc);
-//   layer_add_child(window_layer, line);
-  
   /////////////////////
   // load time layer //
   /////////////////////
   s_time_layer = text_layer_create(GRect(0, 0+35, bounds.size.w, bounds.size.h/2));
   text_layer_set_background_color(s_time_layer, GColorClear); // default GColorWhite
-//   text_layer_set_text_color(s_time_layer, GColorWhite); // default GColorBlack
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_time_layer, s_time_font); // load custom font
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer)); // add layer to window
@@ -60,7 +41,6 @@ static void main_window_load(Window *window) {
   /////////////////////
   s_date_layer = text_layer_create(GRect(0, bounds.size.h/2-3, bounds.size.w, bounds.size.h/2));
   text_layer_set_background_color(s_date_layer, GColorClear); // default GColorWhite
-//   text_layer_set_text_color(s_date_layer, GColorWhite); // default GColorBlack
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_date_layer, s_date_font); // load custom font
   layer_add_child(window_layer, text_layer_get_layer(s_date_layer)); // add layer to window  
@@ -70,7 +50,6 @@ static void main_window_load(Window *window) {
   ///////////////
   s_hashtag_layer = text_layer_create(GRect(0, bounds.size.h-13, bounds.size.w, 13));
   text_layer_set_background_color(s_hashtag_layer, GColorClear); // default GColorWhite
-//   text_layer_set_text_color(s_hashtag_layer, GColorWhite); // default GColorBlack
   text_layer_set_text_alignment(s_hashtag_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_hashtag_layer, s_fsociety_font);
   text_layer_set_text(s_hashtag_layer, "#fsociety");
@@ -126,6 +105,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 static void main_window_unload(Window *window) {
   fonts_unload_custom_font(s_time_font);
   fonts_unload_custom_font(s_date_font);
+  fonts_unload_custom_font(s_fsociety_font);
   text_layer_destroy(s_time_layer);
   text_layer_destroy(s_date_layer);
   text_layer_destroy(s_hashtag_layer);
