@@ -11,6 +11,13 @@
         "resources": {
             "media": [
                 {
+                    "file": "images/FSOCIETY.png",
+                    "menuIcon": true,
+                    "name": "FSOCIETY_28X28",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
                     "file": "fonts/ULTRALIGHT.ttf",
                     "name": "ULTRALIGHT_10",
                     "targetPlatforms": null,

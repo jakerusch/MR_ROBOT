@@ -53,7 +53,6 @@ static void main_window_load(Window *window) {
 //   text_layer_set_text_color(s_time_layer, GColorWhite); // default GColorBlack
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_time_layer, s_time_font); // load custom font
-//   text_layer_set_text(s_time_layer, "20:00");
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer)); // add layer to window
   
   /////////////////////
@@ -64,7 +63,6 @@ static void main_window_load(Window *window) {
 //   text_layer_set_text_color(s_date_layer, GColorWhite); // default GColorBlack
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_date_layer, s_date_font); // load custom font
-  text_layer_set_text(s_date_layer, "09:55");
   layer_add_child(window_layer, text_layer_get_layer(s_date_layer)); // add layer to window  
   
   ///////////////
