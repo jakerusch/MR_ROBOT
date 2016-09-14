@@ -12,7 +12,7 @@ static void main_window_load(Window *window) {
   //////////////////////////
   // set background color //
   //////////////////////////
-  window_set_background_color(window, GColorWhite); // default GColorWhite
+  window_set_background_color(window, GColorBlack); // default GColorWhite
   
   ///////////////////////
   // get window bounds //
@@ -32,6 +32,7 @@ static void main_window_load(Window *window) {
   /////////////////////
   s_time_layer = text_layer_create(GRect(0, 0+35, bounds.size.w, bounds.size.h/2));
   text_layer_set_background_color(s_time_layer, GColorClear); // default GColorWhite
+  text_layer_set_text_color(s_time_layer, GColorWhite); //default GColorBlack
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_time_layer, s_time_font); // load custom font
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer)); // add layer to window
@@ -41,6 +42,7 @@ static void main_window_load(Window *window) {
   /////////////////////
   s_date_layer = text_layer_create(GRect(0, bounds.size.h/2-3, bounds.size.w, bounds.size.h/2));
   text_layer_set_background_color(s_date_layer, GColorClear); // default GColorWhite
+  text_layer_set_text_color(s_date_layer, GColorWhite); //default GColorBlack
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_date_layer, s_date_font); // load custom font
   layer_add_child(window_layer, text_layer_get_layer(s_date_layer)); // add layer to window  
@@ -50,6 +52,7 @@ static void main_window_load(Window *window) {
   ///////////////
   s_hashtag_layer = text_layer_create(GRect(0, bounds.size.h-13, bounds.size.w, 13));
   text_layer_set_background_color(s_hashtag_layer, GColorClear); // default GColorWhite
+  text_layer_set_text_color(s_hashtag_layer, GColorWhite); //default GColorBlack
   text_layer_set_text_alignment(s_hashtag_layer, GTextAlignmentCenter); // default GTextAlignmentLeft
   text_layer_set_font(s_hashtag_layer, s_fsociety_font);
   text_layer_set_text(s_hashtag_layer, "#fsociety");
